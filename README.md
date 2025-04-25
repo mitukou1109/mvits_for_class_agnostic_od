@@ -56,17 +56,21 @@ and Multiscale Attention ViT with Late fusion (MAVL) (ours).
 <hr />
 
 ## Installation
-The code is tested with PyTorch 1.8.0 and CUDA 11.1. After cloning the repository, follow the below steps for installation,
+The code is tested with PyTorch 2.5.1 and CUDA 12.4. After cloning the repository, follow the below steps for installation,
 
 1. Install PyTorch and torchvision
 ```shell
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124
 ```
-2. Install other dependencies
+2. Install Rust
 ```shell
-pip install -r requirements.txt
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-3. Compile Deformable Attention modules
+3. Install other dependencies
+```shell
+RUSTUP_TOOLCHAIN=1.72.0 pip install -r requirements.txt
+```
+4. Compile Deformable Attention modules
 ```shell
 cd models/ops
 sh make.sh
