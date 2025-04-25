@@ -86,7 +86,7 @@ class ModulatedDetection(Inference):
         # Read the image
         im = Image.open(image_path)
         imq = np.array(im)
-        if len(imq.shape) != 3:
+        if imq.shape[2] != 3:
             im = im.convert('RGB')
         img = self.transform(im).unsqueeze(0).cuda()
         # propagate through the models
